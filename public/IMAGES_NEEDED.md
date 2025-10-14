@@ -145,3 +145,4 @@ For every image, provide descriptive alt text in the MDX frontmatter or content:
 
 See SEO_PLAYBOOK.md for detailed alt text guidelines.
 
+

@@ -46,3 +46,4 @@ Option 3: Upload through Admin Panel
 
 The errors will disappear once you add at least the Priority 1 images!
 
+

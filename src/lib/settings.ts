@@ -99,3 +99,4 @@ export function getSiteSettings(): SiteSettings {
   return JSON.parse(fileContents) as SiteSettings
 }
 
+

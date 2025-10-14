@@ -303,3 +303,4 @@ Any changes you make in the admin panel will now reflect on your portfolio site 
 
 🎉 **Your portfolio is fully dynamic and manageable!**
 
+
