@@ -1,0 +1,260 @@
+# Cursor Rules for Packaging Designer Portfolio
+
+## Project Context
+This is a Next.js 14 portfolio website for a freelance packaging designer, built with TypeScript, Tailwind CSS, and MDX content management. The site is optimized for SEO, performance, and conversions.
+
+## Code Style Guidelines
+
+### TypeScript
+- Use TypeScript for all new files
+- Define explicit types for component props
+- Avoid `any` types - use `unknown` if necessary
+- Use type inference where appropriate
+- Place interfaces and types in `src/types/` for shared types
+
+### React Components
+- Use functional components with hooks
+- Keep components focused and under 200 lines
+- Extract reusable logic into custom hooks
+- Use composition over prop drilling
+- Name event handlers with `handle` prefix (e.g., `handleSubmit`)
+
+### File Naming
+- Components: PascalCase (`ProjectCard.tsx`)
+- Utilities: camelCase (`formatDate.ts`)
+- Pages: lowercase with hyphens (`about/page.tsx`)
+- Constants: UPPER_SNAKE_CASE (`SITE_CONFIG`)
+
+### Styling
+- Use Tailwind utility classes
+- Follow mobile-first approach
+- Use `cn()` utility for conditional classes
+- Keep custom CSS minimal
+- Use CSS variables for theme colors
+
+### Content Management
+- Projects: MDX files in `content/projects/`
+- Blog posts: MDX files in `content/posts/`
+- Testimonials: JSON files in `content/testimonials/`
+- Images: Store in `public/` with descriptive names
+
+## Architecture Patterns
+
+### Page Structure
+```tsx
+import { generatePageMetadata } from '@/lib/seo'
+
+export const metadata = generatePageMetadata({
+  title: 'Page Title',
+  description: 'Page description',
+  path: '/page-path',
+})
+
+export default function PageName() {
+  return <div>Page content</div>
+}
+```
+
+### Server Components (Default)
+- Use server components by default
+- Only use 'use client' when needed for:
+  - useState, useEffect, or other hooks
+  - Event handlers
+  - Browser APIs
+  - Third-party libraries requiring client
+
+### SEO Pattern
+Every page should have:
+1. Metadata export
+2. Relevant JSON-LD structured data
+3. Breadcrumbs (except homepage)
+4. Semantic HTML (h1, section, article, etc.)
+5. Descriptive alt text for all images
+
+## Common Tasks
+
+### Adding a New Project
+1. Create `content/projects/[slug].mdx`
+2. Add project images to `public/projects/[slug]/`
+3. Follow the frontmatter schema in `src/types/index.ts`
+4. Ensure all required fields are present
+5. Use descriptive image alt text
+
+### Adding a Blog Post
+1. Create `content/posts/[slug].mdx`
+2. Add cover image to `public/blog/`
+3. Include all required frontmatter fields
+4. Target 1000-2000 words for SEO
+5. Include internal links to relevant pages
+
+### Adding a New Page
+1. Create `src/app/[route]/page.tsx`
+2. Export metadata with SEO optimization
+3. Add JSON-LD structured data if applicable
+4. Update navigation in `src/lib/constants.ts` if needed
+5. Add to sitemap priority in `next-sitemap.config.js`
+
+## Performance Best Practices
+
+### Images
+- Always use `next/image` component
+- Provide `sizes` prop for responsive images
+- Use `priority` only for above-the-fold images
+- Optimize source images before upload (<200KB)
+- Use descriptive file names with keywords
+
+### Code Splitting
+- Use dynamic imports for heavy components:
+  ```tsx
+  const HeavyComponent = dynamic(() => import('./HeavyComponent'))
+  ```
+- Lazy load below-the-fold content
+- Keep client-side JavaScript minimal
+
+### Data Fetching
+- Use server components for data fetching
+- Implement ISR for dynamic content:
+  ```tsx
+  export const revalidate = 86400 // 24 hours
+  ```
+
+## SEO Checklist for New Content
+
+### Every Page Must Have:
+- [ ] Unique, keyword-optimized title (50-60 chars)
+- [ ] Compelling meta description (150-160 chars)
+- [ ] Proper heading hierarchy (single h1, then h2, h3, etc.)
+- [ ] At least 2-3 internal links
+- [ ] All images have descriptive alt text
+- [ ] Mobile-responsive design
+- [ ] Fast loading time (<3s)
+
+### Projects Must Have:
+- [ ] Target keyword in title and first paragraph
+- [ ] 800-1500 words of content
+- [ ] 6-10 high-quality images
+- [ ] Results/metrics if available
+- [ ] Related project suggestions
+- [ ] Link to relevant service page
+
+### Blog Posts Must Have:
+- [ ] Target keyword research done
+- [ ] 1000-2000 words minimum
+- [ ] Clear structure with subheadings
+- [ ] Featured image with keyword in filename
+- [ ] 3-5 tags assigned
+- [ ] Internal links to relevant content
+- [ ] CTA to contact or relevant service
+
+## Accessibility Requirements
+
+### Always Ensure:
+- Semantic HTML elements (nav, main, article, etc.)
+- Proper heading hierarchy
+- Form labels associated with inputs
+- Sufficient color contrast (WCAG AA)
+- Keyboard navigation support
+- Focus indicators visible
+- Alt text for all images
+- Skip-to-content link present
+
+## Testing Before Commit
+
+### Run These Commands:
+```bash
+pnpm lint          # Check for linting errors
+pnpm typecheck     # Verify TypeScript types
+pnpm format:check  # Check code formatting
+pnpm build         # Ensure build succeeds
+```
+
+### Manual Checks:
+- [ ] Test on mobile viewport
+- [ ] Test keyboard navigation
+- [ ] Verify all links work
+- [ ] Check images load correctly
+- [ ] Test contact form submission
+- [ ] Review in browser dev tools for errors
+
+## Common Pitfalls to Avoid
+
+### Don't:
+- ❌ Use `any` type without good reason
+- ❌ Add 'use client' without necessity
+- ❌ Forget to optimize images before upload
+- ❌ Skip alt text on images
+- ❌ Create deeply nested components (max 3 levels)
+- ❌ Use inline styles instead of Tailwind
+- ❌ Commit secrets or API keys
+- ❌ Add unnecessary dependencies
+
+### Do:
+- ✅ Keep components focused and small
+- ✅ Write descriptive variable names
+- ✅ Add comments for complex logic
+- ✅ Test on multiple devices/browsers
+- ✅ Optimize for Core Web Vitals
+- ✅ Follow SEO best practices
+- ✅ Use environment variables for config
+- ✅ Keep dependencies up to date
+
+## Git Workflow
+
+### Commit Message Format:
+```
+type(scope): subject
+
+Examples:
+feat(blog): add reading progress indicator
+fix(contact): resolve form validation error
+docs(readme): update installation steps
+```
+
+### Before Pushing:
+1. Run linter and type check
+2. Test locally in production mode
+3. Review changed files
+4. Write descriptive commit message
+5. Push to feature branch
+6. Create PR with description
+
+## Environment Variables
+
+### Required for Development:
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_SITE_NAME`
+- `CONTACT_TO_EMAIL`
+
+### Optional:
+- `RESEND_API_KEY` (for contact form)
+- `NEXT_PUBLIC_GA4_ID` (for analytics)
+- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` (for analytics)
+
+## Resources
+
+### Documentation:
+- [Next.js Docs](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com/)
+- Project README.md
+- SEO_PLAYBOOK.md
+
+### Internal Guides:
+- README.md - Setup and usage
+- SEO_PLAYBOOK.md - Content and SEO strategy
+- DEPLOYMENT.md - Deployment instructions
+- CONTRIBUTING.md - Contribution guidelines
+
+## When in Doubt
+
+1. Check existing patterns in the codebase
+2. Consult the relevant documentation file
+3. Follow the examples in the code
+4. Prioritize user experience and accessibility
+5. Test thoroughly before committing
+
+---
+
+This project prioritizes: **SEO, Performance, Accessibility, and User Experience**.
+Always consider these four pillars when making decisions.
+

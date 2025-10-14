@@ -1,0 +1,51 @@
+{
+  "heroImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop",
+  "skills": [
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "Adobe InDesign",
+    "KeyShot",
+    "Blender",
+    "ArtiosCAD",
+    "Esko Suite",
+    "Substance Painter"
+  ],
+  "bioLong": "test",
+  "name": "ll",
+  "social": {
+    "linkedin": "https://linkedin.com/in/yourprofile",
+    "instagram": "https://instagram.com/yourhandle",
+    "twitter": "https://twitter.com/yourhandle",
+    "behance": "https://behance.net/yourprofile",
+    "dribbble": "https://dribbble.com/yourhandle"
+  },
+  "phone": "",
+  "bioShort": "test",
+  "location": "Europe",
+  "awards": [
+    {
+      "name": "Best Sustainable Packaging Design",
+      "organization": "European Packaging Awards",
+      "year": "2023"
+    },
+    {
+      "name": "Excellence in FMCG Packaging",
+      "organization": "International Design Awards",
+      "year": "2022"
+    },
+    {
+      "name": "Innovation in Materials",
+      "organization": "Green Packaging Summit",
+      "year": "2021"
+    }
+  ],
+  "title": "mmmmmmmmmmmmmmmm",
+  "avatar": "/uploads/bigdee.jpg",
+  "email": "hello@yourdesignstudio.com",
+  "stats": {
+    "yearsExperience": 10,
+    "clientsServed": 50,
+    "productsLaunched": 100,
+    "countries": 15
+  }
+}

@@ -1,0 +1,177 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Local development
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  # Profile & Settings
+  - name: "settings"
+    label: "Profile & Settings"
+    files:
+      - label: "My Profile"
+        name: "profile"
+        file: "content/settings/profile.json"
+        fields:
+          - { label: "Full Name", name: "name", widget: "string" }
+          - { label: "Professional Title", name: "title", widget: "string", default: "Freelance Packaging Designer" }
+          - { label: "Profile Picture", name: "avatar", widget: "image" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Bio (Short)", name: "bioShort", widget: "text", hint: "2-3 sentences for homepage" }
+          - { label: "Bio (Long)", name: "bioLong", widget: "markdown", hint: "Full bio for About page" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string", default: "Europe" }
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "Behance", name: "behance", widget: "string", required: false }
+              - { label: "Dribbble", name: "dribbble", widget: "string", required: false }
+          - label: "Stats"
+            name: "stats"
+            widget: "object"
+            fields:
+              - { label: "Years Experience", name: "yearsExperience", widget: "number", default: 10 }
+              - { label: "Clients Served", name: "clientsServed", widget: "number", default: 50 }
+              - { label: "Products Launched", name: "productsLaunched", widget: "number", default: 100 }
+              - { label: "Countries", name: "countries", widget: "number", default: 15 }
+          - label: "Skills & Tools"
+            name: "skills"
+            widget: "list"
+            default: ["Adobe Illustrator", "Adobe Photoshop", "KeyShot"]
+          - label: "Awards"
+            name: "awards"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Award Name", name: "name", widget: "string" }
+              - { label: "Organization", name: "organization", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+      
+      - label: "Site Settings"
+        name: "site"
+        file: "content/settings/site.json"
+        fields:
+          - { label: "Site Name", name: "siteName", widget: "string" }
+          - { label: "Site Tagline", name: "tagline", widget: "string" }
+          - { label: "Site Description", name: "description", widget: "text" }
+          - { label: "Site URL", name: "siteUrl", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "OG Image", name: "ogImage", widget: "image", hint: "1200x630px for social sharing" }
+
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+      - { label: "Client", name: "client", widget: "string" }
+      - label: "Industry"
+        name: "industry"
+        widget: "select"
+        options: ["FMCG", "Cosmetics & Beauty", "Food & Beverage", "Pharmaceuticals", "Consumer Electronics", "Luxury Goods", "Sustainable Products"]
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        default: ["Packaging Design"]
+      - label: "Deliverables"
+        name: "deliverables"
+        widget: "list"
+      - label: "Materials"
+        name: "materials"
+        widget: "list"
+      - label: "Sustainability Flags"
+        name: "sustainabilityFlags"
+        widget: "list"
+        required: false
+      - { label: "Timeline", name: "timeline", widget: "string" }
+      - label: "Results"
+        name: "results"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Metric", name: "metric", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+      - label: "Keywords"
+        name: "keywords"
+        widget: "list"
+      - { label: "Published Date", name: "publishedAt", widget: "datetime" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Blog Posts Collection
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["Design Tips"]
+      - label: "Keywords"
+        name: "keywords"
+        widget: "list"
+      - { label: "Published Date", name: "publishedAt", widget: "datetime" }
+      - label: "Author"
+        name: "author"
+        widget: "object"
+        fields:
+          - { label: "Name", name: "name", widget: "string", default: "YourName Design Studio" }
+          - { label: "Avatar", name: "avatar", widget: "image", required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Client Name", name: "clientName", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Company Logo", name: "companyLogo", widget: "image", required: false }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Project Reference", name: "projectRef", widget: "string", required: false }
+      - label: "Rating"
+        name: "rating"
+        widget: "number"
+        default: 5
+        min: 1
+        max: 5
+      - { label: "Published Date", name: "publishedAt", widget: "datetime" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }

@@ -1,0 +1,48 @@
+REQUIRED IMAGES TO ADD
+======================
+
+To remove the image errors, you need to add these placeholder images:
+
+PRIORITY 1 - Profile Images (Add These First):
+----------------------------------------------
+/public/avatar.jpg              - Your profile photo (400x400px)
+/public/hero-image.jpg          - Homepage hero image (1920x1080px)
+/public/logo.png                - Your logo
+/public/favicon.ico             - Browser icon
+/public/og-image.jpg            - Social sharing image (1200x630px)
+/public/about-profile.jpg       - About page photo (800x800px)
+
+PRIORITY 2 - Project Images (6 projects, each needs):
+-----------------------------------------------------
+/public/projects/honey/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+/public/projects/cosmetics/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+/public/projects/coffee/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+/public/projects/snacks/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+/public/projects/tea/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+/public/projects/chocolate/hero.jpg + 1.jpg, 2.jpg, 3.jpg
+
+PRIORITY 3 - Blog Images:
+------------------------
+/public/blog/sustainable-trends.jpg
+/public/blog/design-process.jpg
+/public/blog/color-psychology.jpg
+/public/blog/mistakes.jpg
+/public/blog/fmcg-strategies.jpg
+/public/blog/3d-mockups.jpg
+
+QUICK FIX - Use Placeholder Images:
+-----------------------------------
+Option 1: Download from Unsplash.com (free)
+   - Search: "packaging design", "designer portrait", "hero background"
+   - Download and rename to match the filenames above
+
+Option 2: Use stock photos you already have
+   - Just rename them to match the required filenames
+
+Option 3: Upload through Admin Panel
+   - Go to: http://localhost:3000/admin
+   - Edit your profile and upload your actual photos
+   - For projects: Edit each project and upload real images
+
+The errors will disappear once you add at least the Priority 1 images!
+
