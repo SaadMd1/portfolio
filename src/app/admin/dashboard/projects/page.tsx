@@ -27,7 +27,7 @@ export default function ProjectsManagePage() {
                 <li><strong>Add New Project:</strong> Create file <code className="bg-white px-2 py-1 rounded">content/projects/your-project.mdx</code></li>
                 <li><strong>Edit Existing:</strong> Open any file in <code className="bg-white px-2 py-1 rounded">content/projects/</code></li>
                 <li><strong>Add Images:</strong> Upload to <code className="bg-white px-2 py-1 rounded">public/uploads/</code> or use Unsplash URLs</li>
-                <li><strong>Push Changes:</strong> <code className="bg-white px-2 py-1 rounded">git add . && git commit -m "message" && git push</code></li>
+                <li><strong>Push Changes:</strong> <code className="bg-white px-2 py-1 rounded">git add . &amp;&amp; git commit -m &quot;message&quot; &amp;&amp; git push</code></li>
                 <li><strong>Auto-Deploy:</strong> Vercel rebuilds automatically!</li>
               </ol>
             </div>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FileText, Image, MessageSquare, Settings, User, LogOut } from 'lucide-react'
+import { FileText, ImageIcon, MessageSquare, Settings, User, LogOut } from 'lucide-react'
 
 export default function AdminDashboard() {
   return (
@@ -44,7 +44,7 @@ export default function AdminDashboard() {
           {/* Projects */}
           <Card className="hover:border-primary transition-colors">
             <CardHeader>
-              <Image className="h-10 w-10 text-primary mb-2" />
+              <ImageIcon className="h-10 w-10 text-primary mb-2" />
               <CardTitle>Projects</CardTitle>
               <CardDescription>
                 Add, edit, or remove your portfolio projects

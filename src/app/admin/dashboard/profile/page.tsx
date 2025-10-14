@@ -27,7 +27,7 @@ export default function ProfileEditPage() {
                 <li><strong>1.</strong> Open <code className="bg-white px-2 py-1 rounded">content/settings/profile.json</code> in your code editor</li>
                 <li><strong>2.</strong> Edit the values (name, bio, email, etc.)</li>
                 <li><strong>3.</strong> Save the file</li>
-                <li><strong>4.</strong> Run: <code className="bg-white px-2 py-1 rounded">git add . && git commit -m "Updated profile" && git push</code></li>
+                <li><strong>4.</strong> Run: <code className="bg-white px-2 py-1 rounded">git add . &amp;&amp; git commit -m &quot;Updated profile&quot; &amp;&amp; git push</code></li>
                 <li><strong>5.</strong> Vercel will auto-deploy your changes!</li>
               </ol>
             </div>
