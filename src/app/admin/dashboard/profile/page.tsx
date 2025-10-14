@@ -41,9 +41,9 @@ export default function ProfileEditPage() {
                 <Link href="/admin/dashboard">Back to Dashboard</Link>
               </Button>
               <Button asChild>
-                <a href="https://github.com/SaadMd1/portfolio/blob/main/content/settings/profile.json" target="_blank">
-                  Edit on GitHub
-                </a>
+                <Link href="/admin/dashboard/profile/edit">
+                  Open Visual Editor
+                </Link>
               </Button>
             </div>
           </div>
