@@ -1,9 +1,5 @@
 backend:
-  name: github
-  repo: SaadMd1/portfolio
-  branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  name: test-repo
 
 # Local development
 local_backend: true
