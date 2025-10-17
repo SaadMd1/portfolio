@@ -1,24 +1,12 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FileText, ImageIcon, MessageSquare, Settings, User, LogOut } from 'lucide-react'
+import { FileText, ImageIcon, MessageSquare, Settings, User } from 'lucide-react'
 
 export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-muted/40">
-      <header className="border-b bg-background">
-        <div className="container-wide flex h-16 items-center justify-between">
-          <h1 className="text-xl font-bold">Portfolio Admin</h1>
-          <Button asChild variant="outline">
-            <Link href="/admin/logout">
-              <LogOut className="mr-2 h-4 w-4" />
-              Logout
-            </Link>
-          </Button>
-        </div>
-      </header>
-
-      <main className="container-wide py-8">
+    <div className="min-h-screen bg-gray-50">
+      <div className="p-8">
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-2">Welcome to Your Admin Panel</h2>
           <p className="text-muted-foreground">Manage your portfolio content from here</p>
@@ -135,7 +123,7 @@ export default function AdminDashboard() {
             <li>• Changes are saved to files and deployed to your live site</li>
           </ul>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
