@@ -10,8 +10,8 @@
     "Esko Suite",
     "Substance Painter"
   ],
-  "bioLong": "test",
-  "name": "ll",
+  "bioLong": "Designer d'emballage freelance passionné avec plus de 10 ans d'expérience dans la création de solutions d'emballage innovantes et durables. Spécialisé dans les secteurs FMCG, cosmétiques et produits de luxe, je combine créativité et expertise technique pour créer des designs qui captent l'attention et améliorent l'expérience client.",
+  "name": "Votre Nom",
   "social": {
     "linkedin": "https://linkedin.com/in/yourprofile",
     "instagram": "https://instagram.com/yourhandle",
@@ -20,7 +20,7 @@
     "dribbble": "https://dribbble.com/yourhandle"
   },
   "phone": "",
-  "bioShort": "test",
+  "bioShort": "Designer d'emballage freelance spécialisé dans les solutions créatives et durables pour les marques innovantes.",
   "location": "Europe",
   "awards": [
     {
@@ -39,12 +39,12 @@
       "year": "2021"
     }
   ],
-  "title": "mmmmmmmmmmmmmmmm",
+  "title": "Designer d'emballage freelance",
   "avatar": "/uploads/1760672679779-1000-f-60565588-asw2ohepwiat4pmg2ljqsusmotxuewge.jpg",
   "email": "hello@yourdesignstudio.com",
   "stats": {
     "yearsExperience": 10,
-    "clientsServed": 50,
+    "clientsServed": 600,
     "productsLaunched": 100,
     "countries": 15
   }
