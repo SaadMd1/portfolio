@@ -14,7 +14,8 @@ import {
   LogOut,
   Menu,
   X,
-  ImageIcon
+  ImageIcon,
+  Briefcase
 } from 'lucide-react'
 
 interface NavItem {
@@ -38,6 +39,11 @@ const navItems: NavItem[] = [
     label: 'Blog Posts',
     href: '/admin/dashboard/blog',
     icon: <FileText className="h-5 w-5" />,
+  },
+  {
+    label: 'Services',
+    href: '/admin/dashboard/services',
+    icon: <Briefcase className="h-5 w-5" />,
   },
   {
     label: 'Testimonials',

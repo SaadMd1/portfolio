@@ -1,0 +1,44 @@
+[
+  {
+    "id": "packaging-design",
+    "title": "Packaging Design",
+    "description": "Création d'emballages attractifs et fonctionnels qui captivent votre audience et renforcent votre identité de marque.",
+    "icon": "package",
+    "features": [
+      "Design d'emballage produit",
+      "Étiquettes et packaging",
+      "Mockups 3D réalistes",
+      "Spécifications d'impression"
+    ],
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "brand-identity",
+    "title": "Brand Identity 1",
+    "description": "Développement d'identités visuelles complètes qui reflètent l'essence de votre marque et créent une connexion avec votre public.",
+    "icon": "palette",
+    "features": [
+      "Logo et identité visuelle",
+      "Charte graphique complète",
+      "Guidelines de marque",
+      "Applications diverses"
+    ],
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "label-design",
+    "title": "Label Design",
+    "description": "Conception d'étiquettes professionnelles qui communiquent efficacement les informations produit tout en attirant l'attention.",
+    "icon": "tag",
+    "features": [
+      "Étiquettes produit",
+      "Design réglementaire",
+      "Typographie et hiérarchie",
+      "Versions multilingues"
+    ],
+    "order": 3,
+    "active": true
+  }
+]

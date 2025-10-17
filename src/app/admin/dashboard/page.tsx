@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FileText, ImageIcon, MessageSquare, Settings, User } from 'lucide-react'
+import { FileText, ImageIcon, MessageSquare, Settings, User, Briefcase } from 'lucide-react'
 
 export default function AdminDashboard() {
   return (
@@ -57,6 +57,22 @@ export default function AdminDashboard() {
             <CardContent>
               <Button asChild className="w-full">
                 <Link href="/admin/dashboard/blog">Manage Blog</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Services */}
+          <Card className="hover:border-primary transition-colors">
+            <CardHeader>
+              <Briefcase className="h-10 w-10 text-primary mb-2" />
+              <CardTitle>Services</CardTitle>
+              <CardDescription>
+                Manage your services, pricing, and offerings
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild className="w-full">
+                <Link href="/admin/dashboard/services">Manage Services</Link>
               </Button>
             </CardContent>
           </Card>
