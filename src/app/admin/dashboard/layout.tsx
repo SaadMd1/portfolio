@@ -84,6 +84,14 @@ export default function DashboardLayout({
         <div
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setSidebarOpen(false)
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Fermer le menu"
         />
       )}
 

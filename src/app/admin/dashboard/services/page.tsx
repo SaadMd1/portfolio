@@ -1,14 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/hooks/use-toast'
-import { Plus, Edit, Trash2, Save, X, GripVertical, Package, Palette, Tag, Briefcase } from 'lucide-react'
+import { Plus, Edit, Trash2, Save, X, Package, Palette, Tag, Briefcase } from 'lucide-react'
 
 interface Service {
   id: string
@@ -271,7 +270,7 @@ export default function ServicesManagePage() {
                   </select>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <IconComponent className="h-5 w-5" />
-                    <span>Aperçu de l'icône</span>
+                    <span>Aperçu de l&apos;icône</span>
                   </div>
                 </div>
 
@@ -297,7 +296,7 @@ export default function ServicesManagePage() {
                     features: e.target.value.split('\n').filter(Boolean) 
                   })}
                   rows={5}
-                  placeholder="Design d'emballage produit&#10;Mockups 3D réalistes&#10;Spécifications d'impression"
+                  placeholder="Design d&apos;emballage produit&#10;Mockups 3D réalistes&#10;Spécifications d&apos;impression"
                 />
               </div>
 
