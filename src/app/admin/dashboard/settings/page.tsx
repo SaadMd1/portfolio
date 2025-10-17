@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useEffect, useState, useCallback } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -83,11 +83,7 @@ export default function SettingsManagePage() {
     ogImage: '',
   })
 
-  useEffect(() => {
-    loadSettings()
-  }, [])
-
-  async function loadSettings() {
+  const loadSettings = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/settings')
       if (response.ok) {
@@ -114,7 +110,11 @@ export default function SettingsManagePage() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [toast])
+
+  useEffect(() => {
+    loadSettings()
+  }, [loadSettings])
 
   async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>, field: string, type: 'profile' | 'site') {
     const file = e.target.files?.[0]
@@ -338,7 +338,9 @@ export default function SettingsManagePage() {
                     </Button>
                   </div>
                   {profileData.avatar && (
-                    <img src={profileData.avatar} alt="Avatar" className="w-24 h-24 rounded-full object-cover" />
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden">
+                      <Image src={profileData.avatar} alt="Profile avatar" fill className="object-cover" />
+                    </div>
                   )}
                 </div>
 
@@ -364,7 +366,9 @@ export default function SettingsManagePage() {
                     </Button>
                   </div>
                   {profileData.heroImage && (
-                    <img src={profileData.heroImage} alt="Hero" className="w-full h-48 object-cover rounded" />
+                    <div className="relative w-full h-48 rounded overflow-hidden">
+                      <Image src={profileData.heroImage} alt="Hero background" fill className="object-cover" />
+                    </div>
                   )}
                 </div>
               </CardContent>
@@ -580,7 +584,9 @@ export default function SettingsManagePage() {
                     </Button>
                   </div>
                   {siteData.logo && (
-                    <img src={siteData.logo} alt="Logo" className="h-16 object-contain" />
+                    <div className="relative h-16 w-32">
+                      <Image src={siteData.logo} alt="Site logo" fill className="object-contain" />
+                    </div>
                   )}
                 </div>
 
@@ -629,7 +635,9 @@ export default function SettingsManagePage() {
                     </Button>
                   </div>
                   {siteData.ogImage && (
-                    <img src={siteData.ogImage} alt="OG Image" className="w-full max-w-md object-cover rounded" />
+                    <div className="relative w-full max-w-md h-64 rounded overflow-hidden">
+                      <Image src={siteData.ogImage} alt="Social sharing preview" fill className="object-cover" />
+                    </div>
                   )}
                 </div>
               </CardContent>

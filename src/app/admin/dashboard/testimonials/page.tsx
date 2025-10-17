@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useEffect, useState, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -41,11 +40,7 @@ export default function TestimonialsManagePage() {
 
   const [formData, setFormData] = useState<Testimonial>(emptyTestimonial)
 
-  useEffect(() => {
-    loadTestimonials()
-  }, [])
-
-  async function loadTestimonials() {
+  const loadTestimonials = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/testimonials')
       if (response.ok) {
@@ -67,7 +62,11 @@ export default function TestimonialsManagePage() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [toast])
+
+  useEffect(() => {
+    loadTestimonials()
+  }, [loadTestimonials])
 
   async function handleDelete(id: string) {
     if (!confirm(`Are you sure you want to delete this testimonial?`)) {

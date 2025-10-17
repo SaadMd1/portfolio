@@ -29,9 +29,9 @@ export async function GET(
     }
 
     const fileContents = fs.readFileSync(servicesFile, 'utf8')
-    const services = JSON.parse(fileContents)
+    const services = JSON.parse(fileContents) as Array<{ id: string; [key: string]: unknown }>
 
-    const service = services.find((s: any) => s.id === params.id)
+    const service = services.find((s) => s.id === params.id)
 
     if (!service) {
       return NextResponse.json({ error: 'Service not found' }, { status: 404 })
@@ -61,9 +61,9 @@ export async function PUT(
     }
 
     const fileContents = fs.readFileSync(servicesFile, 'utf8')
-    let services = JSON.parse(fileContents)
+    const services = JSON.parse(fileContents) as Array<{ id: string; order?: number; [key: string]: unknown }>
 
-    const index = services.findIndex((s: any) => s.id === params.id)
+    const index = services.findIndex((s) => s.id === params.id)
 
     if (index === -1) {
       return NextResponse.json({ error: 'Service not found' }, { status: 404 })
@@ -73,7 +73,7 @@ export async function PUT(
     services[index] = { ...services[index], ...updatedService, id: params.id }
 
     // Sort by order
-    services.sort((a: any, b: any) => (a.order || 0) - (b.order || 0))
+    services.sort((a, b) => (a.order || 0) - (b.order || 0))
 
     // Write to file
     fs.writeFileSync(servicesFile, JSON.stringify(services, null, 2))
@@ -104,9 +104,9 @@ export async function DELETE(
     }
 
     const fileContents = fs.readFileSync(servicesFile, 'utf8')
-    let services = JSON.parse(fileContents)
+    const services = JSON.parse(fileContents) as Array<{ id: string; [key: string]: unknown }>
 
-    const index = services.findIndex((s: any) => s.id === params.id)
+    const index = services.findIndex((s) => s.id === params.id)
 
     if (index === -1) {
       return NextResponse.json({ error: 'Service not found' }, { status: 404 })

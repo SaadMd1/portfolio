@@ -61,14 +61,14 @@ export async function POST(request: Request) {
     }
 
     // Read existing services
-    let services = []
+    let services: Array<{ id: string; order?: number; [key: string]: unknown }> = []
     if (fs.existsSync(servicesFile)) {
       const fileContents = fs.readFileSync(servicesFile, 'utf8')
-      services = JSON.parse(fileContents)
+      services = JSON.parse(fileContents) as Array<{ id: string; order?: number; [key: string]: unknown }>
     }
 
     // Check if ID already exists
-    if (services.some((s: any) => s.id === newService.id)) {
+    if (services.some((s) => s.id === newService.id)) {
       return NextResponse.json({ error: 'Service ID already exists' }, { status: 400 })
     }
 
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     services.push(newService)
 
     // Sort by order
-    services.sort((a: any, b: any) => (a.order || 0) - (b.order || 0))
+    services.sort((a, b) => (a.order || 0) - (b.order || 0))
 
     // Write to file
     fs.writeFileSync(servicesFile, JSON.stringify(services, null, 2))
@@ -106,7 +106,7 @@ export async function PUT(request: Request) {
     }
 
     // Sort by order
-    services.sort((a: any, b: any) => (a.order || 0) - (b.order || 0))
+    services.sort((a, b) => (a.order || 0) - (b.order || 0))
 
     // Write to file
     fs.writeFileSync(servicesFile, JSON.stringify(services, null, 2))
