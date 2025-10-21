@@ -98,20 +98,20 @@ export default function DashboardLayout({
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed top-0 left-0 z-40 h-screen w-64 bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out',
+          'fixed top-0 left-0 z-40 h-screen w-64 bg-gradient-to-b from-emerald-900 to-green-900 border-r border-emerald-700 transition-transform duration-300 ease-in-out',
           sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         )}
       >
         <div className="flex flex-col h-full">
           {/* Logo/Brand */}
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-6 border-b border-emerald-700">
             <Link href="/admin/dashboard" className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-green-400 flex items-center justify-center shadow-lg">
                 <ImageIcon className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h2 className="text-lg font-bold text-gray-900">Admin Panel</h2>
-                <p className="text-xs text-gray-500">Portfolio Management</p>
+                <h2 className="text-lg font-bold text-white">Admin Panel</h2>
+                <p className="text-xs text-emerald-300">Portfolio Management</p>
               </div>
             </Link>
           </div>
@@ -128,10 +128,10 @@ export default function DashboardLayout({
                   href={item.href}
                   onClick={() => setSidebarOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors',
+                    'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200',
                     isActive
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-emerald-500 text-white shadow-lg'
+                      : 'text-emerald-100 hover:bg-emerald-800 hover:text-white'
                   )}
                 >
                   {item.icon}
@@ -142,9 +142,9 @@ export default function DashboardLayout({
           </nav>
 
           {/* Footer */}
-          <div className="p-4 border-t border-gray-200 space-y-2">
+          <div className="p-4 border-t border-emerald-700 space-y-2">
             <Link href="/" target="_blank">
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start bg-emerald-800 hover:bg-emerald-700 text-white border-emerald-600">
                 <svg
                   className="mr-2 h-4 w-4"
                   fill="none"
@@ -162,7 +162,7 @@ export default function DashboardLayout({
               </Button>
             </Link>
             <Link href="/admin/logout">
-              <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50">
+              <Button variant="ghost" className="w-full justify-start text-red-300 hover:text-red-200 hover:bg-red-900/30">
                 <LogOut className="mr-2 h-4 w-4" />
                 Logout
               </Button>

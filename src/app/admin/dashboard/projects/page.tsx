@@ -84,7 +84,7 @@ export default function ProjectsManagePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       <div className="p-8">
         <div className="flex items-center justify-between mb-8">
           <div>

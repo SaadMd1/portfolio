@@ -50,14 +50,16 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted/40">
-      <div className="w-full max-w-md p-8 bg-background rounded-lg shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-900 via-green-800 to-teal-900">
+      <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl border border-emerald-200">
         <div className="flex flex-col items-center mb-8">
-          <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-            <Lock className="h-8 w-8 text-primary" />
+          <div className="h-20 w-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mb-4 shadow-lg">
+            <Lock className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-2xl font-bold">Admin Access</h1>
-          <p className="text-sm text-muted-foreground mt-2">
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-green-600">
+            Admin Access
+          </h1>
+          <p className="text-sm text-gray-600 mt-2">
             Enter your password to access the admin panel
           </p>
         </div>
