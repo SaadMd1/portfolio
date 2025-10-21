@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Toaster } from '@/components/ui/toaster'
+import { AdminProvider } from '@/components/admin-provider'
 import '../globals.css'
 
 const inter = Inter({ 
@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Admin Panel - Portfolio',
   description: 'Administration du portfolio',
-  robots: 'noindex, nofollow', // Empêche l'indexation par les moteurs de recherche
+  robots: 'noindex, nofollow',
 }
 
 export default function AdminLayout({
@@ -23,10 +23,11 @@ export default function AdminLayout({
   return (
     <html lang="fr" suppressHydrationWarning className={inter.variable}>
       <body className="min-h-screen bg-gray-50 antialiased">
-        <div className="min-h-screen flex flex-col">
-          {children}
-        </div>
-        <Toaster />
+        <AdminProvider>
+          <div className="min-h-screen flex flex-col">
+            {children}
+          </div>
+        </AdminProvider>
       </body>
     </html>
   )
