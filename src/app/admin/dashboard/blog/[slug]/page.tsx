@@ -172,9 +172,9 @@ export default function EditPostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="p-8">
-        <div className="flex items-center justify-between mb-8 sticky top-0 bg-gradient-to-r from-green-50 to-emerald-50 py-4 z-10 border-b">
+        <div className="flex items-center justify-between mb-8 sticky top-0 bg-gray-50 py-4 z-10 border-b">
           <div className="flex items-center gap-4">
             <Button asChild variant="outline" size="sm">
               <Link href="/admin/dashboard/blog">

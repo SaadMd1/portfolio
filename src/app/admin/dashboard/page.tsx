@@ -5,7 +5,7 @@ import { FileText, ImageIcon, MessageSquare, Settings, User, Briefcase } from 'l
 
 export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="p-8">
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-2">Welcome to Your Admin Panel</h2>
